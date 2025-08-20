@@ -67,108 +67,125 @@
 // dynamicVariable = true;
 // console.log(dynamicVariable, typeof dynamicVariable);
 
-/////
-// Basic Operators - Math Operators
-console.log("==== MATH OPERATORS")
+// /////
+// // Basic Operators - Math Operators
+// console.log("==== MATH OPERATORS")
 
-const now = 2037;
-const ageJonas = now - 1991;
-const ageSarah  = now - 2018;
-console.log(ageJonas, ageSarah);
+// const now = 2037;
+// const ageJonas = now - 1991;
+// const ageSarah  = now - 2018;
+// console.log(ageJonas, ageSarah);
 
-console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
+// console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
 
-console.log("Math operations");
-console.log("Addition", 10 +5);
-console.log("Subtraction", 20 -8);
-console.log("Multiplication", 4 * 7);
-console.log("Division", 15 / 3);
-console.log("Exponentiation", 2 ** 3);
+// console.log("Math operations");
+// console.log("Addition", 10 +5);
+// console.log("Subtraction", 20 -8);
+// console.log("Multiplication", 4 * 7);
+// console.log("Division", 15 / 3);
+// console.log("Exponentiation", 2 ** 3);
 
-// Math with strings
-const firstName = "Jonas";
-const lastName = "Doe";
-console.log(firstName + " " + lastName);
+// // Math with strings
+// const firstName = "Jonas";
+// const lastName = "Doe";
+// console.log(firstName + " " + lastName);
 
-console.log("Hello " + "World" + "!");
-console.log("I am " + 25 + " years old!")
+// console.log("Hello " + "World" + "!");
+// console.log("I am " + 25 + " years old!")
 
-/////
-console.log ("=== ASSIGNEMENT OPERATORS ====");
+// /////
+// console.log ("=== ASSIGNEMENT OPERATORS ====");
 
-let x = 10 + 15;
-console.log("x start as:", x);
+// let x = 10 + 15;
+// console.log("x start as:", x);
 
-x += 10;
-console.log("x start as:, x");
+// x += 10;
+// console.log("x start as:, x");
 
-x *= 4;
-console.log("x start as:, x");
+// x *= 4;
+// console.log("x start as:, x");
 
-x /= 2;
-console.log("x start as:, x");
+// x /= 2;
+// console.log("x start as:, x");
 
-x++;
-console.log("x start as:, x");
+// x++;
+// console.log("x start as:, x");
 
-x++;
-console.log("x start as:, x");
+// x++;
+// console.log("x start as:, x");
 
-/////
-console.log("=== COMPARISON OPERATORS");
+// /////
+// console.log("=== COMPARISON OPERATORS");
 
-console.log("Age comparison:");
-console.log(ageJonas > ageSarah); 
-console.log(ageSarah >= 18); 
-console.log(ageJonas < 30); 
+// console.log("Age comparison:");
+// console.log(ageJonas > ageSarah); 
+// console.log(ageSarah >= 18); 
+// console.log(ageJonas < 30); 
 
-console.log("Number comparisons:");
-console.log(25 > 20);
-console.log(15 < 10); 
-console.log(18 >= 18);
-console.log(16 <= 15);
+// console.log("Number comparisons:");
+// console.log(25 > 20);
+// console.log(15 < 10); 
+// console.log(18 >= 18);
+// console.log(16 <= 15);
 
-// storing comparison
-const isFullAge = ageSarah >= 18;
-console.log("Sarah is adult:", isFullAge);
+// // storing comparison
+// const isFullAge = ageSarah >= 18;
+// console.log("Sarah is adult:", isFullAge);
 
-console.log("Complex comparison"); 
-console.log(now - 1991 > now - 2018);
+// console.log("Complex comparison"); 
+// console.log(now - 1991 > now - 2018);
 
-let z, y; 'Doe'
-z = y = 25 - 10 - 5;
-console.log(z, y);
+// let z, y; 'Doe'
+// z = y = 25 - 10 - 5;
+// console.log(z, y);
 
-// How it works: 25 - 10 - 5 = 10, then y = 10, then x = 10
+// // How it works: 25 - 10 - 5 = 10, then y = 10, then x = 10
 
-const averageAge = (ageJonas + ageSarah) / 2;
-console.log(ageJonas, ageSarah, averageAge);
+// const averageAge = (ageJonas + ageSarah) / 2;
+// console.log(ageJonas, ageSarah, averageAge);
 
-// Without parentheses would be wrong:
-// ageJonas + ageSarah / 2 = 46 + 9.5 = 55.5 ❌
+// // Without parentheses would be wrong:
+// // ageJonas + ageSarah / 2 = 46 + 9.5 = 55.5 ❌
+
+// ////////////////////////////////////
+// // Coding Challenge #1 - BMI Calculator
+
+// // TEST DATA 1
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+
+// // Your code here:
+// // 1. Calculate BMIs
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+
+// // 2. Create markHigherBMI variable
+// const markHigherBMI = BMIMark > BMIJohn;
+
+// // 3. Log results to console
+// console.log("Mark's BMI:", BMIMark);
+// console.log("John's BMI:", BMIJohn);
+
+// console.log("Mark has higher BMI:", markHigherBMI);
 
 ////////////////////////////////////
-// Coding Challenge #1 - BMI Calculator
+// Strings and Template Literals
+const firstName = "Jonas";
+const job = "teacher";
+const birthYear = 1991;
+const year = 2037;
 
-// TEST DATA 1
-const massMark = 78;
-const heightMark = 1.69;
-const massJohn = 92;
-const heightJohn = 1.95;
+const jonas =
+  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+console.log(jonas);
 
-// Your code here:
-// 1. Calculate BMIs
-const BMIMark = massMark / heightMark ** 2;
-const BMIJohn = massJohn / (heightJohn * heightJohn);
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+console.log(jonasNew);
 
-// 2. Create markHigherBMI variable
-const markHigherBMI = BMIMark > BMIJohn;
+console.log(`I'm ${2037 - 1991} years old`);
+console.log(`Math works: ${2 + 3} equals five`);
+console.log(`Comparisons too: ${5 > 3}`);
 
-// 3. Log results to console
-console.log("Mark's BMI:", BMIMark);
-console.log("John's BMI:", BMIJohn);
-
-console.log("Mark has higher BMI:", markHigherBMI);
-
-
-
+console.log(`Just a regular string`);
