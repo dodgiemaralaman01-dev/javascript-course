@@ -147,28 +147,61 @@
 // // Without parentheses would be wrong:
 // // ageJonas + ageSarah / 2 = 46 + 9.5 = 55.5 ❌
 
-// ////////////////////////////////////
-// // Coding Challenge #1 - BMI Calculator
+////////////////////////////////////
+// Coding Challenge #1 - BMI Calculator (SOLUTION 1)
 
-// // TEST DATA 1
+// TEST DATA 1
 // const massMark = 78;
 // const heightMark = 1.69;
 // const massJohn = 92;
 // const heightJohn = 1.95;
 
-// // Your code here:
-// // 1. Calculate BMIs
+// Your code here:
+// 1. Calculate BMIs
 // const BMIMark = massMark / heightMark ** 2;
 // const BMIJohn = massJohn / (heightJohn * heightJohn);
 
-// // 2. Create markHigherBMI variable
+// 2. Create markHigherBMI variable
 // const markHigherBMI = BMIMark > BMIJohn;
 
-// // 3. Log results to console
+// 3. Log results to console
 // console.log("Mark's BMI:", BMIMark);
 // console.log("John's BMI:", BMIJohn);
 
 // console.log("Mark has higher BMI:", markHigherBMI);
+
+////////////////////////////////////
+// JavaScript Fundamentals - Hour 2
+// Coding Challenge #1 - BMI Calculator (SOLUTION 2)
+
+// -------- TEST DATA 1 --------
+// Mark weights 78 kg and is 1.69 m tall
+// John weights 92 kg and is 1.95 m tall
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+
+// -------- TEST DATA 2 --------
+// Mark weights 95 kg and is 1.88 m tall
+// John weights 85 kg and is 1.76 m tall
+// const massMark = 95;
+// const heightMark = 1.88;
+// const massJohn = 85;
+// const heightJohn = 1.76;
+
+// 1. Calculate BMIs
+// const BMIMark = massMark / (heightMark * heightMark);
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+
+// 2. Create markHigherBMI variable
+// const markHigherBMI = BMIMark > BMIJohn;
+
+// 3. Log results to console
+// console.log(`Mark's BMI: ${BMIMark.toFixed(2)}`);
+// console.log(`John's BMI: ${BMIJohn.toFixed(2)}`);
+// console.log(`Does Mark have a higher BMI than John? ${markHigherBMI}`);
+
 
 ////////////////////////////////////
 // Strings and Template Literals
