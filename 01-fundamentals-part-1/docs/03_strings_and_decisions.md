@@ -67,7 +67,6 @@ console.log(`Math works: ${2 + 3} equals five`);
 console.log(`Comparisons too: ${5 > 3}`); // true
 
 // You can use backticks for any string
-console.log(`Just a regular string...`);
 ```
 
 ### Multiline Strings Made Easy
@@ -338,6 +337,30 @@ By the end of Hour 3, your `script.js` should include:
 // JavaScript Fundamentals - Hour 3
 // Insert your complete code here
 ```
+
+// Coding Challenge #2
+
+// Solution 1
+// if (BMIMark > BMIJohn) {
+//   console.log(
+//     `Mark's BMI (${BMIMark.toFixed(1)}) is higher than John's (${BMIJohn.toFixed(
+//       1
+//     )})!`
+//   );
+// } else {
+//   console.log(
+//     `John's BMI (${BMIJohn.toFixed(1)}) is higher than Mark's (${BMIMark.toFixed(
+//       1
+//     )})!`
+//   );
+// }
+
+// Solution 2
+// if (BMIMark > BMIJohn) {
+//   console.log("Marks's BMI ($){BMIMark}) is higher than John's (${BMIJohn})");
+// } else {
+//   console.log("John's BMI ($){BMIJohn}) is higher than Mark's (${BMIMark})");
+// }
 
 ## 📊 Save Your Progress with Git
 
