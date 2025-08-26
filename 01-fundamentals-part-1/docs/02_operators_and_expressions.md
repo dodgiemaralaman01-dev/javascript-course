@@ -131,6 +131,17 @@ console.log("After x-- twice:", x); // 49
 let score = 100;
 // Your code here...
 ```
+My Code:
+
+let score = 100;
+
+score += 150;  // 250
+score *= 2;    // 500
+score -= 125;  // 375
+score++;       // 376
+score++;       // 377
+
+console.log(score); // 377
 
 **Expected result:** 377
 
@@ -192,6 +203,23 @@ console.log(now - 1991 > now - 2018); // Same as: ageJonas > ageSarah
 const myAge = 25; // Change this to your age
 // Your code here...
 ```
+My Code:
+
+const myAge = 20; 
+
+// 1. Compare your age to 18
+console.log(myAge >= 18); // true (since 20 is greater than 18)
+
+// 2. Check if 100 is greater than 99
+console.log(100 > 99); // true
+
+// 3. Store a comparison result in a variable
+let isAdult = myAge >= 18;
+console.log(isAdult); // true
+
+// 4. Compare the result of two calculations
+console.log((10 + 5) > (7 * 2)); // 15 > 14 = true
+
 
 ## 📐 Operator Precedence (Order Matters!)
 
@@ -262,61 +290,66 @@ Time for your first real coding challenge! This BMI calculator could be used in 
 ### Your Solution Space
 
 ```javascript
-////////////////////////////////////
-// Coding Challenge #1 - BMI Calculator (SOLUTION 1)
 
-// TEST DATA 1
-// const massMark = 78;
-// const heightMark = 1.69;
-// const massJohn = 92;
-// const heightJohn = 1.95;
-
-// Your code here:
-// 1. Calculate BMIs
-// const BMIMark = massMark / heightMark ** 2;
-// const BMIJohn = massJohn / (heightJohn * heightJohn);
-
-// 2. Create markHigherBMI variable
-// const markHigherBMI = BMIMark > BMIJohn;
-
-// 3. Log results to console
-// console.log("Mark's BMI:", BMIMark);
-// console.log("John's BMI:", BMIJohn);
-
-// console.log("Mark has higher BMI:", markHigherBMI);
-
-////////////////////////////////////
-// JavaScript Fundamentals - Hour 2
-// Coding Challenge #1 - BMI Calculator (SOLUTION 2)
-
-// -------- TEST DATA 1 --------
-// Mark weights 78 kg and is 1.69 m tall
-// John weights 92 kg and is 1.95 m tall
-// const massMark = 78;
-// const heightMark = 1.69;
-// const massJohn = 92;
-// const heightJohn = 1.95;
-
-// -------- TEST DATA 2 --------
-// Mark weights 95 kg and is 1.88 m tall
-// John weights 85 kg and is 1.76 m tall
-// const massMark = 95;
-// const heightMark = 1.88;
-// const massJohn = 85;
-// const heightJohn = 1.76;
-
-// 1. Calculate BMIs
-// const BMIMark = massMark / (heightMark * heightMark);
-// const BMIJohn = massJohn / (heightJohn * heightJohn);
-
-// 2. Create markHigherBMI variable
-// const markHigherBMI = BMIMark > BMIJohn;
-
-// 3. Log results to console
-// console.log(`Mark's BMI: ${BMIMark.toFixed(2)}`);
-// console.log(`John's BMI: ${BMIJohn.toFixed(2)}`);
-// console.log(`Does Mark have a higher BMI than John? ${markHigherBMI}`);
 ```
+My Code:
+
+////////////////////////////////////
+Coding Challenge #1 - BMI Calculator 
+Solution #1
+
+TEST DATA 1
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+Your code here:
+1. Calculate BMIs
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+
+2. Create markHigherBMI variable
+const markHigherBMI = BMIMark > BMIJohn;
+
+3. Log results to console
+console.log("Mark's BMI:", BMIMark);
+console.log("John's BMI:", BMIJohn);
+
+console.log("Mark has higher BMI:", markHigherBMI);
+
+////////////////////////////////////
+JavaScript Fundamentals - Hour 2
+Coding Challenge #1 - BMI Calculator 
+Solution #2
+
+-------- TEST DATA 1 --------
+Mark weights 78 kg and is 1.69 m tall
+John weights 92 kg and is 1.95 m tall
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+-------- TEST DATA 2 --------
+Mark weights 95 kg and is 1.88 m tall
+John weights 85 kg and is 1.76 m tall
+const massMark = 95;
+const heightMark = 1.88;
+const massJohn = 85;
+const heightJohn = 1.76;
+
+1. Calculate BMIs
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+
+2. Create markHigherBMI variable
+const markHigherBMI = BMIMark > BMIJohn;
+
+3. Log results to console
+console.log(`Mark's BMI: ${BMIMark.toFixed(2)}`);
+console.log(`John's BMI: ${BMIJohn.toFixed(2)}`);
+console.log(`Does Mark have a higher BMI than John? ${markHigherBMI}`);
 
 ## ✅ Your Complete Hour 2 Code
 

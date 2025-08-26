@@ -99,6 +99,24 @@ const userAge = "25"; // Convert to number
 const userScore = 95; // Convert to string
 // Your code here...
 ```
+My Code:
+
+// Predict the output, then test:
+console.log("5" + 2); // "52" (string concatenation)
+console.log("5" - 2); // 3   ("5" is converted to number)
+console.log("5" * 2); // 10  ("5" is converted to number)
+console.log("5" / 2); // 2.5 ("5" is converted to number)
+
+// Convert these explicitly:
+const userAge = "25"; // Convert to number
+const userScore = 95; // Convert to string
+
+const ageAsNumber = Number(userAge);
+const scoreAsString = String(userScore);
+
+console.log(ageAsNumber, typeof ageAsNumber); // 25 "number"
+console.log(scoreAsString, typeof scoreAsString); // "95" "string"
+
 
 ### Exercise 2: Fix the Bug
 
@@ -112,6 +130,17 @@ console.log(`Sum: ${sum}`);
 // Fix: Convert to numbers first
 // Your code here...
 ```
+My Code:
+
+// This calculator has a bug - fix it!
+const num1 = prompt("First number:"); // Returns string!
+const num2 = prompt("Second number:"); // Returns string!
+
+// Fix: Convert to numbers first
+const sum = Number(num1) + Number(num2);
+
+console.log(`Sum: ${sum}`);
+
 
 ## ⚖️ Equality Operators: === vs == (The Professional's Choice)
 
@@ -197,6 +226,17 @@ console.log(true == 1); // Your guess: ?
 console.log(false === 0); // Your guess: ?
 console.log(false == 0); // Your guess: ?
 ```
+My Code:
+
+console.log(5 === "5"); // false (different types: number vs string)
+console.log(5 == "5");  // true  (string "5" is coerced to number 5)
+
+console.log(true === 1); // false (boolean vs number, no type coercion)
+console.log(true == 1);  // true  (true is coerced to 1)
+
+console.log(false === 0); // false (boolean vs number, no type coercion)
+console.log(false == 0);  // true  (false is coerced to 0)
+
 
 ### Exercise 2: Fix the Login System
 
@@ -215,6 +255,19 @@ if (username == "admin" && password == "1234") {
 // Fix using strict equality
 // Your code here...
 ```
+My Code:
+
+// This login system has bugs - fix them!
+const username = prompt("Username:");
+const password = prompt("Password:");
+
+// Fix using strict equality
+if (username === "admin" && password === "1234") {
+  console.log("Welcome admin!");
+} else {
+  console.log("Access denied");
+}
+
 
 ## 🧠 Logical Operators (Complex Decision Making)
 
@@ -295,6 +348,22 @@ const isVIP = false; // Try different values
 //   console.log('Sorry, you cannot enter');
 // }
 ```
+My Code:
+
+// Create a club entry system with these rules:
+// Entry allowed if: (age >= 21 AND hasID) OR isVIP
+
+const age = 19; // Try different values
+const hasID = true; // Try different values
+const isVIP = false; // Try different values
+
+// Your logic here:
+if ((age >= 21 && hasID) || isVIP) {
+  console.log('Welcome to the club!');
+} else {
+  console.log('Sorry, you cannot enter');
+}
+
 
 ### Exercise 2: Weather Advisor
 
@@ -311,6 +380,26 @@ const isWindy = true;
 
 // Your code here...
 ```
+My Code:
+
+// Create a weather advisor:
+const temperature = 25; // Celsius
+const isRaining = false;
+const isWindy = true;
+
+// Advice rules:
+// Perfect day: temp 20-30 AND not raining AND not windy
+// Good day: temp 15-35 AND not raining
+// Stay inside: anything else
+
+if (temperature >= 20 && temperature <= 30 && !isRaining && !isWindy) {
+  console.log("Perfect day! Enjoy the outdoors.");
+} else if (temperature >= 15 && temperature <= 35 && !isRaining) {
+  console.log("Good day! You can go outside, but conditions aren’t perfect.");
+} else {
+  console.log("Stay inside! Not a good day to go out.");
+}
+
 
 ## 🎯 Ternary Operator (Elegant One-Liners)
 
@@ -402,6 +491,18 @@ if (isPremium) {
 }
 // Ternary version: ?
 ```
+My Code:
+
+// 1. Login status
+const isLoggedIn = true;
+let welcomeMessage = isLoggedIn ? "Welcome back!" : "Please sign in";
+console.log(welcomeMessage);
+
+// 2. Price with discount
+const isPremium = false;
+let price = isPremium ? 100 * 0.8 : 100;
+console.log(`Price: $${price}`);
+
 
 ### Exercise 2: Smart Responses
 
@@ -418,6 +519,19 @@ const battery = 15; // percentage
 
 // Your code here...
 ```
+My Code:
+
+const score = 85;
+const weather = "sunny";
+const battery = 15; // percentage
+
+// Messages with ternary inside template literals
+console.log(`Your score: ${score} (${score >= 75 ? "Passed" : "Failed"})`);
+
+console.log(`Weather is ${weather} (${weather === "sunny" ? "Great for outdoor activities" : "Stay inside"})`);
+
+console.log(`Battery: ${battery}% (${battery < 20 ? "Low battery warning" : "Battery OK"})`);
+
 
 ## 🏆 Final Challenge: Tip Calculator
 
@@ -462,6 +576,42 @@ console.log(// Your template literal here);
 // Bill 40:  "The bill was 40, the tip was 8, and the total value 48"
 // Bill 430: "The bill was 430, the tip was 86, and the total value 516"
 ```
+My Code:
+
+// Coding Challenge #4
+// Solution #1
+
+const bill = 275; // Test with 275, 40, and 430
+
+// Step 1: Create the tip calculation using ternary operator
+// Rule: 15% if between 50-300, otherwise 20%
+
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+
+// Step 2: Create beautiful output with template literal
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+
+///////////////////////////
+// Coding Challenge #4 
+// Solution #2
+
+const bill = 430; // Test with 275, 40, and 430
+
+// Step 1: Create the tip calculation using ternary operator
+// Rule: 15% if between 50-300, otherwise 20%
+// Hint: bill >= 50 && bill <= 300
+
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;  
+
+// Step 2: Create beautiful output with template literal
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+// Expected outputs:
+// Bill 275: "The bill was 275, the tip was 41.25, and the total value 316.25"
+// Bill 40:  "The bill was 40, the tip was 8, and the total value 48"
+// Bill 430: "The bill was 430, the tip was 86, and the total value 516"
+
 
 **Test all three values to make sure it works correctly!**
 

@@ -256,7 +256,6 @@
 
 // Coding Challenge #2
 
-// Solution 1
 // if (BMIMark > BMIJohn) {
 //   console.log(
 //     `Mark's BMI (${BMIMark.toFixed(1)}) is higher than John's (${BMIJohn.toFixed(
@@ -352,38 +351,38 @@
 
 // Logical Operators
 
-const hasDriversLicense = false; // A
-const hasGoodVision = false; // B
+// const hasDriversLicense = false; // A
+// const hasGoodVision = false; // B
 
-console.log(`AND OPERATOR: ${hasDriversLicense && hasGoodVision}`);
-console.log(`OR OPERATOR: ${hasDriversLicense || hasGoodVision}`);
-console.log(`NOT OPERATOR: ${!hasDriversLicense}`);
+// console.log(`AND OPERATOR: ${hasDriversLicense && hasGoodVision}`);
+// console.log(`OR OPERATOR: ${hasDriversLicense || hasGoodVision}`);
+// console.log(`NOT OPERATOR: ${!hasDriversLicense}`);
 
-const isTired = true; // C
-console.log(hasDriversLicense && hasGoodVision && !isTired);
+// const isTired = true; // C
+// console.log(hasDriversLicense && hasGoodVision && !isTired);
 
-if (hasDriversLicense && hasGoodVision && !isTired) {
-  console.log('Mar is able to drive!');
-} else {
-  console.log('Someone else should drive...');
-}
+// if (hasDriversLicense && hasGoodVision && !isTired) {
+//   console.log('Mar is able to drive!');
+// } else {
+//   console.log('Someone else should drive...');
+// }
 
 
 // More complex scenarios
-const age = 20;
-const hasPermission = true;
-const hasExperience = true;
+// const age = 20;
+// const hasPermission = true;
+// const hasExperience = true;
 
 // Can drive if: (age >= 18 OR has permission) AND has experience
-if ((age >= 18 || hasPermission) && hasExperience) {
-  console.log("Approved to drive");
-} else {
-  console.log("Not approved to drive");
-}
+// if ((age >= 18 || hasPermission) && hasExperience) {
+//   console.log("Approved to drive");
+// } else {
+//   console.log("Not approved to drive");
+// }
 
 //Test with different values
-console.log("Age 20, permission true, experience false");
-          (age >= 18 || hasPermission) && hasExperience;
+// console.log("Age 20, permission true, experience false");
+//           (age >= 18 || hasPermission) && hasExperience;
 
 // "Create a club entry system"
 // 1.) Create variables: age (number), hasID (boolean), isVIP (boolean)
@@ -396,48 +395,116 @@ console.log("Age 20, permission true, experience false");
 
 
 // Club Entry System
-// Solution
+// Solution #1
 
 // 1. Create variables
-let age = 25;        // number
-let hasID = true;    // boolean
-let isVIP = false;   // boolean
+// let age = 25;       
+// let hasID = true;    
+// let isVIP = false;   
 
 // 2. Entry rules: (age >= 21 AND hasID) OR isVIP
-if ((age >= 21 && hasID) || isVIP) {
-  console.log("✅ Allowed to enter the club!");
-} else {
-  console.log("Entry denied. Requirements not met.");
-}
+// if ((age >= 21 && hasID) || isVIP) {
+//   console.log("Allowed to enter the club!");
+// } else {
+//   console.log("Entry denied. Requirements not met.");
+// }
 
 // 3. Test with different combinations:
 
 // Test case 1: age 25, hasID true, isVIP false -> should enter
-age = 25; hasID = true; isVIP = false;
-console.log("\nTest Case 1:");
-if ((age >= 21 && hasID) || isVIP) {
-  console.log("Allowed to enter the club!");
-} else {
-  console.log("Entry denied. Requirements not met.");
-}
+// age = 25; hasID = true; isVIP = false;
+// console.log("\nTest Case 1:");
+// if ((age >= 21 && hasID) || isVIP) {
+//   console.log("Allowed to enter the club!");
+// } else {
+//   console.log("Entry denied. Requirements not met.");
+// }
 
 // Test case 2: age 19, hasID true, isVIP true -> should enter
-age = 19; hasID = true; isVIP = true;
-console.log("\nTest Case 2:");
-if ((age >= 21 && hasID) || isVIP) {
-  console.log("Allowed to enter the club!");
-} else {
-  console.log("Entry denied. Requirements not met.");
-}
+// age = 19; hasID = true; isVIP = true;
+// console.log("\nTest Case 2:");
+// if ((age >= 21 && hasID) || isVIP) {
+//   console.log("Allowed to enter the club!");
+// } else {
+//   console.log("Entry denied. Requirements not met.");
+// }
 
 // Test case 3: age 19, hasID false, isVIP false -> should NOT enter
-age = 19; hasID = false; isVIP = false;
-console.log("\nTest Case 3:");
-if ((age >= 21 && hasID) || isVIP) {
-  console.log("Allowed to enter the club!");
-} else {
-  console.log("Entry denied. Requirements not met.");
-}
+// age = 19; hasID = false; isVIP = false;
+// console.log("\nTest Case 3:");
+// if ((age >= 21 && hasID) || isVIP) {
+//   console.log("Allowed to enter the club!");
+// } else {
+//   console.log("Entry denied. Requirements not met.");
+// }
+
+
+//////////////////////////////////////
+
+// The Conditional (Ternary) Operator
+
+// const age = 20;
+
+// //basic ternary: condition ? valueifTrue : valueifFalse
+// const drink = age >= 18 ? 'wine' : 'water';
+// console.log(drink);
+
+// if else statement
+// let drink2
+// if (age >= 18) {
+//   drink2 = 'wine';
+// } else {
+//   drink2 = 'water';
+// }
+// console.log(drink2);
+
+// console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
+
+
+// Coding Challenge #4
+//Solution #1
+
+//const bill = 275; // Test with 275, 40, and 430
+
+// Step 1: Create the tip calculation using ternary operator
+// Rule: 15% if between 50-300, otherwise 20%
+
+//const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+
+// Step 2: Create beautiful output with template literal
+//console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+
+///////////////////////////
+// Coding Challenge #4 
+// Solution #2
+
+const bill = 430; // Test with 275, 40, and 430
+
+// Step 1: Create the tip calculation using ternary operator
+// Rule: 15% if between 50-300, otherwise 20%
+// Hint: bill >= 50 && bill <= 300
+
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;  
+
+// Step 2: Create beautiful output with template literal
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+// Expected outputs:
+// Bill 275: "The bill was 275, the tip was 41.25, and the total value 316.25"
+// Bill 40:  "The bill was 40, the tip was 8, and the total value 48"
+// Bill 430: "The bill was 430, the tip was 86, and the total value 516"
+
+
+
+
+
+
+
+
+
+
+
 
 
 
