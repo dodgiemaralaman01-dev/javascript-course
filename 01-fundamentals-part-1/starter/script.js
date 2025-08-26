@@ -205,20 +205,75 @@
 
 ////////////////////////////////////
 // Strings and Template Literals
-const firstName = "Jonas";
-const job = "teacher";
-const birthYear = 1991;
-const year = 2037;
+// const firstName = "Jonas";
+// const job = "teacher";
+// const birthYear = 1991;
+// const year = 2037;
 
-const jonas =
-  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
-console.log(jonas);
+// const jonas =
+//   "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+// console.log(jonas);
 
-const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
-console.log(jonasNew);
+// const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+// console.log(jonasNew);
 
-console.log(`I'm ${2037 - 1991} years old`);
-console.log(`Math works: ${2 + 3} equals five`);
-console.log(`Comparisons too: ${5 > 3}`);
+// console.log(`I'm ${2037 - 1991} years old`);
+// console.log(`Math works: ${2 + 3} equals five`);
 
-console.log(`Just a regular string`);
+// console.log(`Comparisons too: ${5 > 3}`);
+// console.log(`Just a regular string`);
+
+// // if else statements
+// const age = 10;
+
+// if (age >= 18) {
+//   console.log("Sarah can start driving a license");
+// } else {
+//   const yearsLeft = 18 - age;
+//   console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+// }
+
+
+// console.log(Boolean(0)); //falsy value
+// console.log(Boolean(undefined)); //falsy value
+// console.log(Boolean("Jonas")); //truthy value
+// console.log(Boolean({})); //truthy value
+// console.log(Boolean("")); //falsy value
+
+// Reuse your BMI calculation from Challenge #1
+const massMark = 55;
+const heightMark = 1.69;
+const massJohn = 95;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+// Your if/else statement here:
+// Compare BMIs and create intelligent messages
+// Use template literals for beautiful output
+
+// Coding Challenge #2
+
+// Solution 1
+// if (BMIMark > BMIJohn) {
+//   console.log(
+//     `Mark's BMI (${BMIMark.toFixed(1)}) is higher than John's (${BMIJohn.toFixed(
+//       1
+//     )})!`
+//   );
+// } else {
+//   console.log(
+//     `John's BMI (${BMIJohn.toFixed(1)}) is higher than Mark's (${BMIMark.toFixed(
+//       1
+//     )})!`
+//   );
+// }
+
+// Solution 2
+if (BMIMark > BMIJohn) {
+  console.log("Marks's BMI ($){BMIMark}) is higher than John's (${BMIJohn})");
+} else {
+  console.log("John's BMI ($){BMIJohn}) is higher than Mark's (${BMIMark})");
+}
