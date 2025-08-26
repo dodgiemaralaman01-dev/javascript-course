@@ -277,3 +277,169 @@
 // } else {
 //   console.log("John's BMI ($){BMIJohn}) is higher than Mark's (${BMIMark})");
 // }
+
+// Type conversion and coercion
+// const inputYear = "1991";
+// console.log(Number(inputYear), inputYear);
+// console.log(Number(inputYear) + 18);
+
+// console.log(Number("Jonas"));
+// console.log(typeof NaN);
+
+// console.log(String(23), 23);
+// console.log(typeof String(23));
+
+// Automatic Type Coercion
+// console.log("I am " + 23 + " years old");
+// console.log("23" - "10" - 3);
+// console.log("23" / "2");
+// console.log("23" * "2");
+
+// let n = '1' + 1; 
+// console.log(n);
+
+// n = n - 1;
+// console.log(n);
+
+// type conversion = explicit/manual (recommend)
+// type coercion = implicit/automatic (javascript does itself)
+
+
+
+// Equality - Strict
+
+// const age = '18';
+// if (age === 18) console.log('You just became an adult (strict)');
+// if (age == 18) console.log('You just became an adult :D (loose)');
+
+// console.log('18' === 18);
+// console.log('18' == 18); //coercion happens
+// console.log(18 === 18);
+
+// why == can be dangerous
+// console.log('0' == 0);
+// console.log(0 == false);
+// console.log('0' == false);
+// console.log(null == undefined); //special case
+
+// console.log('' == 0);
+// console.log('   ' == 0);
+
+// // best practice
+// const favourite = prompt("What's your favourite number?");
+// console.log(favourite);
+// console.log(typeof favourite);
+
+// if (favourite === 23) {
+//   console.log('Cool! 23 is an amazing number!');
+// } if (favourite == 23) {
+//   console.log('23 string is also a cool number');
+// } else if (favourite === 9) {
+//   console.log('9 is also a cool number');
+// } else {
+//   console.log('Number is not 23 or 7 or 9');
+// }
+
+// if (favourite !== 23) console.log('Why not 23?');
+
+// "Test equality operators"
+// 1.) Create a variable 'userInput' with string '25'
+// 2.) Compare using both === and === with number 25
+// 3.) Log the results and observe the difference
+// 4.) Convert the string explicitly and test again
+// 5.) Try with different values: '0', '', false, null"  
+
+
+// Logical Operators
+
+const hasDriversLicense = false; // A
+const hasGoodVision = false; // B
+
+console.log(`AND OPERATOR: ${hasDriversLicense && hasGoodVision}`);
+console.log(`OR OPERATOR: ${hasDriversLicense || hasGoodVision}`);
+console.log(`NOT OPERATOR: ${!hasDriversLicense}`);
+
+const isTired = true; // C
+console.log(hasDriversLicense && hasGoodVision && !isTired);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log('Mar is able to drive!');
+} else {
+  console.log('Someone else should drive...');
+}
+
+
+// More complex scenarios
+const age = 20;
+const hasPermission = true;
+const hasExperience = true;
+
+// Can drive if: (age >= 18 OR has permission) AND has experience
+if ((age >= 18 || hasPermission) && hasExperience) {
+  console.log("Approved to drive");
+} else {
+  console.log("Not approved to drive");
+}
+
+//Test with different values
+console.log("Age 20, permission true, experience false");
+          (age >= 18 || hasPermission) && hasExperience;
+
+// "Create a club entry system"
+// 1.) Create variables: age (number), hasID (boolean), isVIP (boolean)
+// 2.) Entry rules: (age >= 21 AND hasID) OR isVIP)
+// 3.) Test with different combinations;
+//     - age 25, hasID true, isVIP false (should enter)
+//     - age 19, hasID true, isVIP true (should enter)
+//     - age 19, hasID false, isVIP false (should not enter)
+// 4.) Use if/else to log appropriate messages"
+
+
+// Club Entry System
+// Solution
+
+// 1. Create variables
+let age = 25;        // number
+let hasID = true;    // boolean
+let isVIP = false;   // boolean
+
+// 2. Entry rules: (age >= 21 AND hasID) OR isVIP
+if ((age >= 21 && hasID) || isVIP) {
+  console.log("✅ Allowed to enter the club!");
+} else {
+  console.log("Entry denied. Requirements not met.");
+}
+
+// 3. Test with different combinations:
+
+// Test case 1: age 25, hasID true, isVIP false -> should enter
+age = 25; hasID = true; isVIP = false;
+console.log("\nTest Case 1:");
+if ((age >= 21 && hasID) || isVIP) {
+  console.log("Allowed to enter the club!");
+} else {
+  console.log("Entry denied. Requirements not met.");
+}
+
+// Test case 2: age 19, hasID true, isVIP true -> should enter
+age = 19; hasID = true; isVIP = true;
+console.log("\nTest Case 2:");
+if ((age >= 21 && hasID) || isVIP) {
+  console.log("Allowed to enter the club!");
+} else {
+  console.log("Entry denied. Requirements not met.");
+}
+
+// Test case 3: age 19, hasID false, isVIP false -> should NOT enter
+age = 19; hasID = false; isVIP = false;
+console.log("\nTest Case 3:");
+if ((age >= 21 && hasID) || isVIP) {
+  console.log("Allowed to enter the club!");
+} else {
+  console.log("Entry denied. Requirements not met.");
+}
+
+
+
+
+
