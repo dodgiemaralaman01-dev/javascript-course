@@ -778,3 +778,566 @@ console.log(
 
 // 5.) What's the difference between console.log and console.error?
 // console.log shows general output; console.error shows errors in red
+
+// Hour 4: Advanced Challenges
+
+// Opening Setup
+// Developer Skills Hour 4 - Advanced Problem-Solving & Real-World Challenges
+('use strict');
+
+console.log('=== HOUR 4: ADVANCED PROBLEM-SOLVING MASTERY ===');
+
+/*
+Your Developer Transformation Today:
+Hour 1: Professional tools and environment ✅
+Hour 2: Problem-solving framework and mindset ✅  
+Hour 3: Research and debugging mastery ✅
+Hour 4: Apply everything to real challenges
+
+You're now solving unfamiliar problems independently.
+*/
+
+console.log('Ready to tackle complex problems using systematic approaches');
+console.log('Challenge: Build solutions that work under pressure');
+
+// Section 1: Weather Forecast Challenge
+
+// Problem Statement:
+// Given an array of forecasted maximum temperatures, create a function that
+// displays a formatted string with these temperatures.
+
+// EXAMPLE:
+// Input: [17, 21, 23]
+// Output: "...17°C in 1 days...21°C in 2 days...23°C in 3 days..."
+
+// REQUIREMENTS:
+// - Function name: printForecast(arr)
+// - Log formatted string to console
+// - Handle arrays of any length
+// - Day numbering starts at 1 (not 0)
+// - Include temperature symbol and proper formatting
+
+// TEST DATA:
+// - Test 1: [17, 21, 23]
+// - Test 2: [12, 5, -5, 0, 4]
+
+// My Solutions:
+
+// STEP 1 — UNDERSTAND
+// - Input: array of numbers (temperatures).
+// - Output: one string logged to console in this pattern:
+// ...<temp>°C in <day> days...<temp>°C in <day> days...
+// - Day numbering = index + 1.
+// - Should handle any array length, empty arrays, and bad inputs sensibly.
+
+// STEP 2 — DIVIDE
+// Subproblems:
+// 1.) Validate input (is array).
+// 2.) Map each value → formatted piece (<temp>°C in <n> days).
+// 3.) Join pieces with the "..." separator and add "..." to start and end.
+// 4.) Log to console.
+
+// STEP 3 — PLAN (brief)
+// - Use Array.prototype.map to turn each entry into a formatted string.
+// - Use Array.prototype.join('...') then prefix & suffix "...".
+// - For robustness: handle empty array and non-array input.
+
+// STEP 4 — CODE (implementation + tests)
+
+// Version A — matches the example (always uses "days")
+// function printForecast(arr) {
+//   if (!Array.isArray(arr)) {
+//     console.error("printForecast error: input must be an array");
+//     return;
+//   }
+//   if (arr.length === 0) {
+//     console.log("...No forecast data...");
+//     return;
+//   }
+
+//   const body = arr.map((temp, i) => `${temp}°C in ${i + 1} days`).join('...');
+//   console.log('...' + body + '...');
+// }
+
+// Tests
+// printForecast([17, 21, 23]);
+// Expected: ...17°C in 1 days...21°C in 2 days...23°C in 3 days...
+
+// printForecast([12, 5, -5, 0, 4]);
+// Expected: ...12°C in 1 days...5°C in 2 days...-5°C in 3 days...0°C in 4 days...4°C in 5 days...
+
+// Version B — small enhancement (correct singular/plural: day when 1)
+// function printForecastNice(arr) {
+//   if (!Array.isArray(arr)) {
+//     console.error("printForecastNice error: input must be an array");
+//     return;
+//   }
+//   if (arr.length === 0) {
+//     console.log("...No forecast data...");
+//     return;
+//   }
+
+//   const body = arr
+//     .map((temp, i) => {
+//       const day = i + 1;
+//       const label = day === 1 ? 'day' : 'days';
+//       return `${temp}°C in ${day} ${label}`;
+//     })
+//     .join('...');
+//   console.log('...' + body + '...');
+// }
+
+// Same tests
+// printForecastNice([17, 21, 23]);
+// Expected: ...17°C in 1 day...21°C in 2 days...23°C in 3 days...
+
+// Implementation According to the Document
+////////////////////////////////////
+// MAIN CHALLENGE: Weather Forecast String Builder
+
+/*
+WEATHER FORECAST CHALLENGE:
+Apply 4-step framework systematically:
+1. UNDERSTAND: Transform array to formatted string with day numbering
+2. DIVIDE: String building + formatting + day calculation + separators
+3. RESEARCH: String concatenation and template literals
+4. IMPLEMENT: Step-by-step solution building
+*/
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+function printForecast(arr) {
+  // Start with empty string accumulator - same pattern as sum calculations
+  let str = '';
+
+  // Loop through array to build the formatted string
+  for (let i = 0; i < arr.length; i++) {
+    // Build each piece using template literals for clean formatting
+    str += `${arr[i]}°C in ${i + 1} days ... `;
+  }
+
+  // Add starting dots and log the final result
+  console.log('...' + str);
+}
+
+// Test with provided data
+printForecast(data1);
+printForecast(data2);
+
+console.log('Weather forecast formatter working correctly!');
+
+// Alternative Approaches According to the Document
+////////////////////////////////////
+// ALTERNATIVE IMPLEMENTATIONS
+
+// Alternative 1 - Using array methods instead of loops
+function printForecastMap(arr) {
+  const formatted = arr.map((temp, index) => `${temp}°C in ${index + 1} days`);
+  console.log('...' + formatted.join(' ... ') + ' ...');
+}
+
+// Alternative 2 - Single line approach using reduce
+function printForecastReduce(arr) {
+  const result = arr.reduce(
+    (acc, temp, index) => acc + `${temp}°C in ${index + 1} days ... `,
+    '...'
+  );
+  console.log(result);
+}
+
+// Test alternative approaches
+console.log('Testing alternative implementations:');
+printForecastMap(data1);
+printForecastReduce(data1);
+
+// Which approach do you prefer and why?
+
+// Loop approach: Most readable for beginners
+// Map approach: Functional programming style
+// Reduce approach: Most concise but harder to read
+
+// My Answer:
+// I prefer the `map` + `join` approach because it reads declaratively,
+// you clearly express the transformation of each temperature into a formatted piece
+// and then join those pieces, making the intent obvious to future readers and easy to test;
+// it also handles separators cleanly so you avoid accidental extra characters.
+// For typical input sizes its performance is comparable to a loop,
+// and it composes well with other array operations (like `filter` or `slice`) without changing the core logic.
+// A plain `for` loop can be better when teaching iteration or when you need fine-grained control, while `reduce` is useful for complex single-pass aggregations but is usually less readable for simple string formatting.
+
+// Section 2: Time-Pressured Challenge
+// Job Interview Simulation
+// The Challenge:
+// SCENARIO: You're building a time tracking app for freelancers.
+
+// PROBLEM:
+// Create a function that analyzes a week of work hours and returns:
+// 1. Total hours worked
+// 2. Average daily hours
+// 3. The day with most hours worked
+// 4. Number of days worked (non-zero hours)
+// 5. Whether it was a full-time week (35+ hours)
+
+// INPUT: Array of 7 numbers representing daily hours
+// EXAMPLE: [7.5, 8, 6.5, 0, 8.5, 4, 0]
+
+// FUNCTION NAME: analyzeWorkWeek(dailyHours)
+// RETURN: Object with all calculated values
+
+// TIME LIMIT: 10 minutes - START NOW!
+
+// Exercise: Work Hours Analyzer
+
+// My Solution:
+
+// 1.) Understand: input = array of 7 daily hours → compute 5 metrics.
+// 2.) Divide: total, average, max-day, non-zero count, full-time check.
+// 3.) Research/Decide: return an object; day names Mon–Sun; on ties pick first occurrence.
+// 4.) Implement & test.
+
+// Implementation
+// function analyzeWorkWeek(dailyHours) {
+//   // Basic validation
+//   if (!Array.isArray(dailyHours)) {
+//     throw new TypeError('dailyHours must be an array');
+//   }
+//   if (dailyHours.length !== 7) {
+//     console.warn(
+//       'Expected 7 entries (Mon-Sun). Function will still compute using provided length.'
+//     );
+//   }
+
+//   const dayNames = [
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday',
+//     'Sunday',
+//   ];
+//   const len = dailyHours.length;
+
+// Normalize & validate numeric entries (coerce only if safe)
+// const hours = dailyHours.map((h, i) => {
+//   if (typeof h !== 'number' || !Number.isFinite(h)) {
+//     console.warn(
+//       `Invalid number at index ${i} (${dayNames[i] ?? i}); treating as 0.`
+//     );
+//     return 0;
+//   }
+//   return h;
+// });
+
+// 1) Total hours worked
+// const totalHours = hours.reduce((acc, v) => acc + v, 0);
+
+// 2) Average daily hours (divide by full week length = len)
+// const averageDailyHours = len > 0 ? totalHours / len : 0;
+
+// 3) Day with most hours (first max if tie)
+// let maxIndex = 0;
+// for (let i = 1; i < hours.length; i++) {
+//   if (hours[i] > hours[maxIndex]) maxIndex = i;
+// }
+// const dayWithMostHours = {
+//   index: maxIndex,
+//   name: dayNames[maxIndex] ?? `Day ${maxIndex + 1}`,
+//   hours: hours[maxIndex],
+// };
+
+// 4) Number of days worked (non-zero hours)
+// const daysWorked = hours.reduce((acc, v) => acc + (v > 0 ? 1 : 0), 0);
+
+// 5) Full-time week? (35+ hours)
+// const isFullTimeWeek = totalHours >= 35;
+
+//   return {
+//     totalHours,
+//     averageDailyHours,
+//     dayWithMostHours,
+//     daysWorked,
+//     isFullTimeWeek,
+//   };
+// }
+
+// Test with the example
+// Input: [7.5, 8, 6.5, 0, 8.5, 4, 0]
+// const example = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+// const report = analyzeWorkWeek(example);
+// console.log(report);
+
+/* Output object:
+{
+  totalHours: 34.5,                         // 7.5 + 8 + 6.5 + 0 + 8.5 + 4 + 0 = 34.5
+  averageDailyHours: 34.5 / 7 ≈ 4.9285714286,
+  dayWithMostHours: { index: 4, name: "Friday", hours: 8.5 }, // first max at index 4
+  daysWorked: 5,                             // non-zero days: 7.5,8,6.5,8.5,4
+  isFullTimeWeek: false                      // 34.5 < 35
+}
+*/
+
+////////////////////////////////////
+// TIME-PRESSURED CHALLENGE: Work Hours Analyzer Based on the Document
+
+/*
+JOB INTERVIEW SIMULATION:
+10-minute challenge to analyze freelancer work week
+Stay systematic even under pressure!
+*/
+
+function analyzeWorkWeek(dailyHours) {
+  // Calculate total hours using reduce
+  const totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
+
+  // Calculate average with proper rounding
+  const averageHours = Math.round((totalHours / dailyHours.length) * 10) / 10;
+
+  // Find maximum hours and corresponding day
+  const maxHours = Math.max(...dailyHours);
+  const maxDayIndex = dailyHours.indexOf(maxHours);
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+  const maxDay = days[maxDayIndex];
+
+  // Count days worked using filter
+  const daysWorked = dailyHours.filter(hours => hours > 0).length;
+
+  // Check if full-time week
+  const isFullTime = totalHours >= 35;
+
+  return {
+    totalHours,
+    averageHours,
+    maxDay,
+    daysWorked,
+    isFullTime,
+  };
+}
+
+// Test the solution
+const weeklyHours = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+const analysis = analyzeWorkWeek(weeklyHours);
+console.log('Work week analysis:', analysis);
+
+console.log('Challenge completed under time pressure!');
+
+// Optimized Version According to the Document
+// Optimized version with error handling
+function analyzeWorkWeekOptimized(dailyHours) {
+  if (!Array.isArray(dailyHours) || dailyHours.length !== 7) {
+    console.error('Invalid input: Expected array of 7 daily hours');
+    return null;
+  }
+
+  const totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
+  const averageHours = Math.round((totalHours / 7) * 10) / 10;
+  const maxHours = Math.max(...dailyHours);
+  const maxDayIndex = dailyHours.indexOf(maxHours);
+  const daysWorked = dailyHours.filter(hours => hours > 0).length;
+
+  const dayNames = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
+  return {
+    totalHours,
+    averageHours,
+    maxDay: dayNames[maxDayIndex],
+    daysWorked,
+    isFullTime: totalHours >= 35,
+    workingDays: dailyHours
+      .map((hours, index) => (hours > 0 ? dayNames[index] : null))
+      .filter(day => day !== null),
+  };
+}
+
+const optimizedAnalysis = analyzeWorkWeekOptimized(weeklyHours);
+console.log('Optimized analysis:', optimizedAnalysis);
+
+// Section 3: Debug Legacy Code
+// Final Integration Challenge
+
+// The Buggy Code
+////////////////////////////////////
+// FINAL INTEGRATION: Debug and Enhance Legacy Code
+
+// Here's the buggy legacy code you need to fix
+function legacyForecastFunction(temperatures) {
+  // Multiple bugs hidden in this code!
+  var result = '';
+  for (var i = 1; i <= temperatures.length; i++) {
+    result = result + temperatures[i] + ' degrees in day ' + i + ', ';
+  }
+  return result;
+}
+
+// Test the buggy function to see what goes wrong
+const testData = [15, 18, 22, 19];
+console.log('Buggy function output:', legacyForecastFunction(testData));
+
+// My Solution:
+// Fixing & enhancing the legacy forecast function (5-step applied)
+// Short answer: I fixed the bugs, modernized the code, added input validation,
+// nicer formatting (°C + singular/plural day), and warnings for bad data.
+// Example output shown below.
+
+// 5-step debugging summary
+// 1.) IDENTIFY — Symptom: output contains undefined and wrong formatting.
+// 2.) ISOLATE — Problem area: the for loop and string building inside legacyForecastFunction.
+// 3.) INVESTIGATE — Root causes: loop started at 1 and used <=, indexing temperatures[i] read past end and skipped the 0th element; var used; no validation; poor formatting.
+// 4.) FIX — Correct loop bounds (i = 0; i < length), use let/const, validate inputs, handle non-number entries, and produce clear formatted string.
+// 5.) PREVENT — Add input checks, use Number.isFinite, add warnings, suggest linter/TypeScript/tests.
+
+// My Fixed & enhanced implementation
+// Fixed + enhanced version of the legacy function
+// function legacyForecastFunctionFixed(temperatures) {
+//   // Input validation
+//   if (!Array.isArray(temperatures)) {
+//     console.error("legacyForecastFunctionFixed: expected an array of numbers");
+//     return "...Invalid input...";
+//   }
+
+//   const pieces = [];
+
+//   for (let i = 0; i < temperatures.length; i++) {
+//     const value = temperatures[i];
+
+//     // Skip non-numeric values (with a warning)
+//     if (typeof value !== "number" || !Number.isFinite(value)) {
+//       console.warn(`Skipping invalid temperature at index ${i}:`, value);
+//       continue;
+//     }
+
+//     const day = i + 1;
+//     const dayLabel = day === 1 ? "day" : "days";
+//     pieces.push(`${value}°C in ${day} ${dayLabel}`);
+//   }
+
+//   if (pieces.length === 0) {
+//     return "...No valid temperature data...";
+//   }
+
+// Join with leading and trailing "..." to match the requested style
+//   return "..." + pieces.join("...") + "...";
+// }
+
+// Tests and example outputs
+// const testData = [15, 18, 22, 19];
+// console.log("Fixed output:", legacyForecastFunctionFixed(testData));
+// Fixed output: ...15°C in 1 day...18°C in 2 days...22°C in 3 days...19°C in 4 days...
+
+// Test with some invalid values
+// const mixed = [15, null, "hot", 21];
+// console.log("Mixed output:", legacyForecastFunctionFixed(mixed));
+// Console warnings:
+// Skipping invalid temperature at index 1: null
+// Skipping invalid temperature at index 2: "hot"
+// Mixed output: ...15°C in 1 day...21°C in 4 days...
+
+// Test with totally invalid input
+// console.log(legacyForecastFunctionFixed("not-an-array"));
+// Console error: legacyForecastFunctionFixed: expected an array of numbers
+// Output: ...Invalid input...
+
+// Fixed and Enhanced Version According to the Document
+////////////////////////////////////
+// SYSTEMATIC DEBUGGING AND ENHANCEMENT
+
+// Completely fixed and enhanced version according to the document
+function enhancedForecastFunction(temperatures, options = {}) {
+  // Step 5 - PREVENT: Add comprehensive input validation
+  if (!Array.isArray(temperatures) || temperatures.length === 0) {
+    console.error('Invalid input: temperatures must be a non-empty array');
+    return '';
+  }
+
+  // Step 4 - FIX: Use modern JavaScript with proper declarations
+  const { unit = '°C', separator = '...', includeIndex = true } = options;
+
+  // Step 4 - FIX: Correct loop bounds and string building
+  let result = '';
+
+  for (let i = 0; i < temperatures.length; i++) {
+    const dayNumber = includeIndex ? i + 1 : i;
+    result += `${temperatures[i]}${unit} in ${dayNumber} days${separator}`;
+  }
+
+  // Step 5 - PREVENT: Return clean result without trailing separator
+  return separator + result.slice(0, -separator.length);
+}
+
+// Test the enhanced function with multiple configurations
+console.log('Enhanced function (default):', enhancedForecastFunction(testData));
+console.log(
+  'Enhanced function (custom):',
+  enhancedForecastFunction(testData, {
+    unit: '°F',
+    separator: ' | ',
+    includeIndex: true,
+  })
+);
+
+console.log('🎯 Complete developer skills successfully applied!');
+console.log('Legacy code debugged, fixed, and enhanced systematically');
+
+// Final Success Checklist
+// Problem-Solving Mastery:
+// - [/] Apply 4-step framework automatically to new problems
+// - [/] Break complex challenges into manageable sub-problems
+// - [/] Research effectively when knowledge gaps exist
+// - [/] Implement working solutions systematically
+
+// Professional Readiness:
+// - [/] Handle time pressure while maintaining systematic approach
+// - [/] Debug unfamiliar code using 5-step methodology
+// - [/] Consider multiple solution approaches and trade-offs
+// - [/] Demonstrate confidence in tackling new challenges
+
+// Complete Developer Toolkit:
+// - [/] Professional environment with automated tools
+// - [/] Systematic problem-solving framework
+// - [/] Research skills for self-sufficiency
+// - [/] Debugging expertise for error resolution
+
+// Check Your Understanding
+// - [/] Apply the 4-step problem-solving framework to complex challenges
+// - [/] Handle time-pressured coding exercises systematically
+// - [/] Debug and enhance legacy code using professional methodology
+// - [/] Consider multiple solution approaches and evaluate trade-offs
+// - [/] Demonstrate confidence in tackling unfamiliar programming problems
+
+// Quick Quiz:
+// 1.) How do you stay systematic when solving problems under time pressure?
+// Apply the 4-step framework even under pressure - it prevents
+// panic and ensures systematic thinking
+
+// 2.) What's the benefit of considering multiple solution approaches?
+// Different approaches have different trade-offs
+// (readability vs performance, simplicity vs features)
+
+// 3.) How do you debug code you didn't write originally?
+// Use the 5-step debugging methodology: Identify →
+// Isolate → Investigate → Fix → Prevent
+
+// 4.) What makes a solution "professional quality"?
+// Clean code, proper error handling, good documentation,
+// and systematic approach
+
+// 5.) How do you build confidence in handling new programming challenges?
+// Practice with increasingly complex challenges
+// and trust your systematic problem-solving process
