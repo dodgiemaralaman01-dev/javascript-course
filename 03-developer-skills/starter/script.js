@@ -351,3 +351,19 @@ FRAMEWORK SUCCESS ANALYSIS:
 */
 
 console.log('🎯 Framework mastered - ready for independent problem solving!');
+
+// Quick Quiz:
+// 1.) What are the 4 steps of the problem-solving framework?
+// Answer: Understand → Divide → Research → Implement
+
+// 2.) Why is it important to understand the problem before coding?
+// Answer: Prevents wasted time and ensures you solve the right problem
+
+// 3.) What's the benefit of breaking problems into sub-problems?
+// Answer: Small problems are easier to solve and debug
+
+// 4.) When should you research solutions vs. using existing knowledge?
+// Answer: Research when you don't know how to solve a sub-problem
+
+// 5.) How do you test each piece of your solution?
+// Answer: Test each piece individually before combining them
