@@ -45,7 +45,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber;
   } else if (guess > secretNumber) {
     console.log('Too high!');
-    document.querySelector('.message').textContent = 'Too high';
+    document.querySelector('.message').textContent = 'Too high🦖';
   } else if (guess < secretNumber) {
     console.log('Too low!');
     document.querySelector('.message').textContent = 'Too low🐔';
