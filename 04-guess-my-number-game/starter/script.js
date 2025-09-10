@@ -1,6 +1,6 @@
 'use strict';
 
-//DOM Element Selection
+// DOM Element Selection
 
 const messageEl = document.querySelector('.message');
 console.log(messageEl);
@@ -31,7 +31,7 @@ document.querySelector('.score').textContent = score;
 document.querySelector('.highscore').textContent = highscore;
 console.log('Game state initialized!👾');
 
-//Basic Game Logic
+// Basic Game Logic
 document.querySelector('.check').addEventListener('click', function () {
   console.log('Check button is clicked!');
   const guess = Number(document.querySelector('.guess').value);
@@ -78,13 +78,13 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  //Restart Message
+  // Restart The Message Display
   document.querySelector('.message').textContent = 'Start Guessing🧠';
-  //Restart Question Mark
+  // Restart Question Mark or the Reveal Secret Number
   document.querySelector('.number').textContent = '?';
-  //Restart Score
+  // Update Score in the UI
   document.querySelector('.score').textContent = score;
-  //Restart Guess Value
+  // Restart Guess Input Value
   document.querySelector('.guess').value = '';
   document.querySelector('.check').disabled = false;
   document.querySelector('.guess').disabled = false;
