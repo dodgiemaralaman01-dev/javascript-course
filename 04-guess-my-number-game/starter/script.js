@@ -55,7 +55,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.score').textContent = score;
     if (score < 1) {
       document.querySelector('.message').textContent =
-        'You Have Lost! Play Again';
+        'You Have Lost! Play Again!🤡';
       document.querySelector('.number').textContent = secretNumber;
       document.querySelector('.check').disabled = true;
       document.querySelector('.guess').disabled = true;
@@ -67,7 +67,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.score').textContent = score;
     if (score < 1) {
       document.querySelector('.message').textContent =
-        'You Have Lost! Play Again';
+        'You Have Lost! Play Again!🤡';
       document.querySelector('.number').textContent = secretNumber;
       document.querySelector('.check').disabled = true;
       document.querySelector('.guess').disabled = true;
