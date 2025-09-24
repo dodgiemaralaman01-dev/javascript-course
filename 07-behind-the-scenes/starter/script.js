@@ -158,7 +158,7 @@ function two() {
 }
 one(); // expect 'stack: two'
 
-// Hour 2: The this Keyword & Arrow Functions – Student Guide
+// Hour 2: The this Keyword & Arrow Functions
 
 // Section 1: Understanding the this Keyword
 // Basic this Rules and Method Calls
@@ -353,3 +353,188 @@ const myTimer = {
 };
 
 myTimer.startCountdown();
+
+// Hour 3: Primitives vs Objects, Copying & Strict Mode
+
+// Section 1: Stack vs Heap Memory Model
+// PRIMITIVES IN STACK
+let age = 20;
+let oldAge = age; // Independent copy
+age = 21;
+
+console.log('age:', age); // 21
+console.log('oldAge:', oldAge); // 20 (unchanged!)
+
+// OBJECTS IN HEAP
+const me = { name: 'Spongebob', age: 30 };
+const friend = me; // Shared reference
+
+friend.age = 27;
+
+console.log('me:', me); // { name: 'Spongebob', age: 27 }
+console.log('friend:', friend); // { name: 'Spongebob', age: 27 }
+
+// Test Reference Behavior
+function changeAge(person, newAge) {
+  person.age = newAge;
+  return person;
+}
+
+const originalPerson = { name: 'Squidward', age: 25 };
+const updatedPerson = changeAge(originalPerson, 30);
+
+console.log('original:', originalPerson); // { name: 'Squidward', age: 30 } - Changed!
+console.log('updated:', updatedPerson); // { name: 'Squidward', age: 30 } - Same object!
+console.log('same object?:', originalPerson === updatedPerson); // true
+
+// Section 2: Shallow vs Deep Copying
+// Shallow Copying Techniques
+const original = {
+  name: 'X.Borg',
+  age: 28,
+  hobbies: ['reading', 'coding'],
+};
+
+// Spread operator shallow copy
+const shallowCopy = { ...original };
+
+shallowCopy.name = 'Arlott';
+console.log('original name:', original.name); // 'X.Borg' (unchanged)
+console.log('copy name:', shallowCopy.name); // 'Arlott' (changed)
+
+// But nested objects are still shared
+shallowCopy.hobbies.push('gaming');
+console.log('original hobbies:', original.hobbies); // ['reading', 'coding', 'gaming'] - Changed!
+console.log('copy hobbies:', shallowCopy.hobbies); // ['reading', 'coding', 'gaming'] - Same array!
+
+// Object.assign alternative
+const anotherCopy = Object.assign({}, original);
+console.log('Object.assign copy:', anotherCopy);
+
+// Deep Copying Solutions
+const deepOriginal = {
+  name: 'Lapu-Lapu',
+  age: 32,
+  address: { city: 'Cebu', country: 'Philippines' },
+  hobbies: ['forging', 'fishing'],
+};
+
+// Modern deep copy with structuredClone
+const deepCopy = structuredClone(deepOriginal);
+
+deepCopy.address.city = 'Mactan';
+deepCopy.hobbies.push('cooking');
+
+console.log('original address:', deepOriginal.address); // { city: 'Cebu', country: 'Philippines' }
+console.log('copy address:', deepCopy.address); // { city: 'Mactan', country: 'Philippines' }
+console.log('original hobbies:', deepOriginal.hobbies); // ['forging', 'fishing']
+console.log('copy hobbies:', deepCopy.hobbies); // ['forging', 'fishing', 'cooking']
+
+// Common Pitfall: JSON Methods
+const problemObject = {
+  name: 'Test',
+  date: new Date(),
+  method: function () {
+    return 'hello';
+  },
+  undefinedValue: undefined,
+};
+
+// BROKEN: JSON method loses data
+const brokenCopy = JSON.parse(JSON.stringify(problemObject));
+console.log('Broken copy:', brokenCopy);
+// { name: 'Test', date: '2023-...' } - Lost method and undefined!
+
+// FIXED: structuredClone preserves most types
+const workingCopy = structuredClone(problemObject);
+console.log('Working copy:', workingCopy);
+// Note: functions still can't be cloned, but dates work!
+
+// Copying Challenge
+const userManager = {
+  users: [],
+
+  addUser: function (userData) {
+    const deepCopy =
+      typeof structuredClone === 'function'
+        ? structuredClone(userData)
+        : JSON.parse(JSON.stringify(userData));
+
+    this.users.push(deepCopy);
+  },
+
+  getUsers: function () {},
+
+  getUsersImmutable: function () {
+    const clone =
+      typeof structuredClone === 'function'
+        ? obj => structuredClone(obj)
+        : obj => JSON.parse(JSON.stringify(obj));
+    return this.users.map(clone);
+  },
+};
+
+const originalUser = { name: 'Mr. Crabs', preferences: { theme: 'dark' } };
+userManager.addUser(originalUser);
+
+originalUser.name = 'Modified';
+
+console.log('Original changed:', originalUser);
+console.log('Stored user:', userManager.getUsers()[0]); // Still 'Plankton'
+
+const arr = userManager.getUsers();
+arr.push({ name: 'Plankton' });
+console.log('Internal users length:', userManager.users.length); // Still 1
+
+const safeList = userManager.getUsersImmutable();
+safeList[0].name = 'ChangedAgain';
+console.log('Stored user after immutable-get:', userManager.getUsers()[0]);
+
+// Section 3: Strict Mode Benefits & Integration
+
+// Strict Mode Throughout All Concepts
+// 1. Hoisting and TDZ (Hour 1)
+// Without strict mode: undeclaredVar = 'This would create a global variable!';
+// With strict mode: throws ReferenceError
+// undeclaredVar = 'This throws an error in strict mode';
+
+// 2. This keyword (Hour 2)
+function demonstrateThis() {
+  console.log('this in strict mode:', this); // undefined (not global object)
+}
+demonstrateThis();
+
+// 3. Object mutation prevention attempts
+const readOnlyObj = Object.freeze({ name: 'Frozen' });
+
+try {
+  readOnlyObj.name = 'Changed'; // Throws error in strict mode
+  console.log('Mutation succeeded');
+} catch (error) {
+  console.log('Strict mode caught error:', error.message);
+}
+
+// Real-World Integration Example
+const userManager1 = {
+  users: [],
+
+  addUser: function (userData) {
+    // Deep copy to avoid reference issues
+    const userCopy = structuredClone(userData);
+    this.users.push(userCopy);
+    return this; // Method chaining
+  },
+
+  getUsers: function () {
+    // Return shallow copy to prevent external mutation
+    return [...this.users];
+  },
+};
+
+// Test the complete system
+const originalUser = { name: 'Cici', preferences: { theme: 'dark' } };
+userManager1.addUser(originalUser);
+
+originalUser.name = 'Modified';
+console.log('Original changed:', originalUser);
+console.log('Stored user:', userManager1.getUsers()[0]); // Still 'Cici'!
