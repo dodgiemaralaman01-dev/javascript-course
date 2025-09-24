@@ -4,6 +4,7 @@
 
 console.log('=== BEHIND THE SCENES: SCOPING & HOISTING ===');
 
+// Section 1: Execution Contexts & Call Stack
 // Global Execution Context
 console.log('Starting program');
 
@@ -32,6 +33,7 @@ function innerFunction() {
 
 outerFunction();
 
+// Section 2: Scoping & Scope Chain
 // The Three Types of Scope
 
 // 1.) Global Scope
@@ -87,6 +89,7 @@ function a() {
 
 a();
 
+// Section 3: Hoisting & Temporal Dead Zone
 // Variable Hoisting Behavior
 // Variable hoisting examples
 console.log(varX); // undefined (var hoisted, initialized to undefined)
@@ -154,3 +157,5 @@ function two() {
   console.log('stack: two');
 }
 one(); // expect 'stack: two'
+
+// Hour 2: The this Keyword & Arrow Functions – Student Guide
