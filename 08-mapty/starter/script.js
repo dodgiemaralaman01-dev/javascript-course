@@ -135,12 +135,47 @@ class App {
 
   constructor() {
     console.log('🚀 App starting...');
+    this._getLocalStorage();
     this._getPosition();
 
     // attach event handlers to form submission
     form.addEventListener('submit', this._newWorkout.bind(this));
     // attach event handlers for workout type changes
     inputType.addEventListener('change', this._toggleElevationField);
+
+    // add click handling for workout list items
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    document.addEventListener('keydown', this._handleKeyDown.bind(this));
+  }
+
+  _handleKeyDown(e) {
+    // close form when escape key is pressed
+    if (e.key === 'Escape' && !form.classList.contains('hidden')) {
+      this._hideForm();
+      console.log('Form closed with Escape Key');
+    }
+  }
+
+  _moveToPopup(e) {
+    // find the closest workout element from the clicked target
+    const workoutEl = e.target.closest('.workout');
+
+    if (!workoutEl) return;
+
+    // Find the workout object using the data-id attribute
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+
+    // move the map to the workout coordinates
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
+    console.log(`Navigated to ${workout.type} workout at`, workout.coords);
   }
 
   _getPosition() {
@@ -199,6 +234,9 @@ class App {
     }).addTo(this.#map);
 
     this.#map.on('click', this._showForm.bind(this));
+
+    this._renderStoredWorkouts();
+
     console.log('🗺️ Default map loaded successfully');
   }
 
@@ -216,7 +254,21 @@ class App {
 
     L.marker(coords).addTo(this.#map).bindPopup('Nandine ka!').openPopup();
     this.#map.on('click', this._showForm.bind(this));
+
+    this._renderStoredWorkouts();
+
     console.log('Map loaded successfully at user location!');
+  }
+
+  _renderStoredWorkouts() {
+    this.#workouts.forEach(workout => {
+      this._renderWorkoutMarker(workout);
+      this._renderWorkout(workout);
+    });
+
+    if (this.#workouts.length > 0) {
+      console.log(`Rendered ${this.#workouts.length} stored workouts`);
+    }
   }
 
   _showForm(mapE) {
@@ -304,6 +356,8 @@ class App {
 
     this._renderWorkout(workout);
 
+    this._setLocalStorage();
+
     this._hideForm();
 
     console.log('Workout creation complete!');
@@ -379,7 +433,56 @@ class App {
       )
       .openPopup();
   }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+    console.log('Workouts saved to the local storage');
+  }
+
+  _getLocalStorage() {
+    const data = localStorage.getItem('workouts');
+
+    // check if the data exists before parsing
+    if (!data) return;
+
+    // parse the JSON data back to Javascript objects
+    const storedWorkouts = JSON.parse(data);
+    console.log('Retrieved workouts from local Storage', storedWorkouts);
+
+    // restore proper workout objects with inheritance
+    this.#workouts = storedWorkouts.map(workoutData => {
+      let workout;
+
+      // recreate running objects with proper inheritance
+      if (workoutData.type === 'running') {
+        workout = new Running(
+          workoutData.coords,
+          workoutData.distance,
+          workoutData.duration,
+          workoutData.cadence
+        );
+      }
+
+      // recreate cycling objects with proper inheritance
+      if (workoutData.type === 'cycling') {
+        workout = new Cycling(
+          workoutData.coords,
+          workoutData.distance,
+          workoutData.duration,
+          workoutData.elevationGain
+        );
+      }
+
+      // restore original date and ID to maintain data consistency
+      workout.data = new Date(workoutData.date);
+      workout.id = workoutData.id;
+      workout.clicks = workoutData.click;
+
+      return workout;
+    });
+
+    console.log('Workouts restored as proper objects', this.#workouts);
+  }
 }
 
 const app = new App();
-console.log('Hour 3 complete!');
