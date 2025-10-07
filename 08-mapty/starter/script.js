@@ -191,9 +191,9 @@ class App {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.#map);
 
-    L.marker(coords).addTo(this.#map).bindPopup('You are here!').openPopup();
+    L.marker(coords).addTo(this.#map).bindPopup('Nandine ka!').openPopup();
     this.#map.on('click', this._showForm.bind(this));
-    console.log('Map loaded successfully!');
+    console.log('Map loaded successfully at user location!');
   }
 
   _showForm(mapE) {
@@ -211,3 +211,6 @@ Lng: ${lng.toFixed(4)}`
       .openPopup();
   }
 }
+
+const app = new App();
+console.log('Hour 2 complete!');
