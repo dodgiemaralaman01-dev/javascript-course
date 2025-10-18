@@ -23,7 +23,7 @@
 
 // var job = "programmer";
 // job = "teacher";
-// console.log(job); 
+// console.log(job);
 
 // age = 51;
 
@@ -118,13 +118,13 @@
 // console.log("=== COMPARISON OPERATORS");
 
 // console.log("Age comparison:");
-// console.log(ageJonas > ageSarah); 
-// console.log(ageSarah >= 18); 
-// console.log(ageJonas < 30); 
+// console.log(ageJonas > ageSarah);
+// console.log(ageSarah >= 18);
+// console.log(ageJonas < 30);
 
 // console.log("Number comparisons:");
 // console.log(25 > 20);
-// console.log(15 < 10); 
+// console.log(15 < 10);
 // console.log(18 >= 18);
 // console.log(16 <= 15);
 
@@ -132,7 +132,7 @@
 // const isFullAge = ageSarah >= 18;
 // console.log("Sarah is adult:", isFullAge);
 
-// console.log("Complex comparison"); 
+// console.log("Complex comparison");
 // console.log(now - 1991 > now - 2018);
 
 // let z, y; 'Doe'
@@ -202,7 +202,6 @@
 // console.log(`John's BMI: ${BMIJohn.toFixed(2)}`);
 // console.log(`Does Mark have a higher BMI than John? ${markHigherBMI}`);
 
-
 ////////////////////////////////////
 // Strings and Template Literals
 // const firstName = "Jonas";
@@ -232,7 +231,6 @@
 //   const yearsLeft = 18 - age;
 //   console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
 // }
-
 
 // console.log(Boolean(0)); //falsy value
 // console.log(Boolean(undefined)); //falsy value
@@ -294,7 +292,7 @@
 // console.log("23" / "2");
 // console.log("23" * "2");
 
-// let n = '1' + 1; 
+// let n = '1' + 1;
 // console.log(n);
 
 // n = n - 1;
@@ -302,8 +300,6 @@
 
 // type conversion = explicit/manual (recommend)
 // type coercion = implicit/automatic (javascript does itself)
-
-
 
 // Equality - Strict
 
@@ -346,8 +342,7 @@
 // 2.) Compare using both === and === with number 25
 // 3.) Log the results and observe the difference
 // 4.) Convert the string explicitly and test again
-// 5.) Try with different values: '0', '', false, null"  
-
+// 5.) Try with different values: '0', '', false, null"
 
 // Logical Operators
 
@@ -366,7 +361,6 @@
 // } else {
 //   console.log('Someone else should drive...');
 // }
-
 
 // More complex scenarios
 // const age = 20;
@@ -393,14 +387,13 @@
 //     - age 19, hasID false, isVIP false (should not enter)
 // 4.) Use if/else to log appropriate messages"
 
-
 // Club Entry System
 // Solution #1
 
 // 1. Create variables
-// let age = 25;       
-// let hasID = true;    
-// let isVIP = false;   
+// let age = 25;
+// let hasID = true;
+// let isVIP = false;
 
 // 2. Entry rules: (age >= 21 AND hasID) OR isVIP
 // if ((age >= 21 && hasID) || isVIP) {
@@ -438,7 +431,6 @@
 //   console.log("Entry denied. Requirements not met.");
 // }
 
-
 //////////////////////////////////////
 
 // The Conditional (Ternary) Operator
@@ -460,7 +452,6 @@
 
 // console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
 
-
 // Coding Challenge #4
 //Solution #1
 
@@ -474,9 +465,8 @@
 // Step 2: Create beautiful output with template literal
 //console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
 
-
 ///////////////////////////
-// Coding Challenge #4 
+// Coding Challenge #4
 // Solution #2
 
 const bill = 430; // Test with 275, 40, and 430
@@ -485,28 +475,14 @@ const bill = 430; // Test with 275, 40, and 430
 // Rule: 15% if between 50-300, otherwise 20%
 // Hint: bill >= 50 && bill <= 300
 
-const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;  
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
 
 // Step 2: Create beautiful output with template literal
-console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);
 
 // Expected outputs:
 // Bill 275: "The bill was 275, the tip was 41.25, and the total value 316.25"
 // Bill 40:  "The bill was 40, the tip was 8, and the total value 48"
 // Bill 430: "The bill was 430, the tip was 86, and the total value 516"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

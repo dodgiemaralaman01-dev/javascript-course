@@ -30,7 +30,6 @@
 // const juice3 = fruitProcessor(3, 2);
 // console.log(juice1);
 
-
 // Function expressions
 // const calcAge = function (birthYear) {
 //     return 2025 - birthYear;
@@ -38,7 +37,6 @@
 
 // console.log(calcAge(2004));
 // console.log(calcAge(1991));
-
 
 // function introduce(firstName, lastName, age) {
 //     const introduction = `Hi, I'm ${firstName} ${lastName} and I'm ${age} years old`;
@@ -96,29 +94,28 @@
 // Test Data 1
 // let scoreDolphins = calcAverage(44, 23, 71);
 // let scoreKoalas = calcAverage(65, 54, 49);
-// console.log(checkWinner(scoreDolphins, scoreKoalas)); 
+// console.log(checkWinner(scoreDolphins, scoreKoalas));
 
 // Test Data 2
 // scoreDolphins = calcAverage(85, 54, 41);
 // scoreKoalas = calcAverage(23, 34, 27);
 // console.log(checkWinner(scoreDolphins, scoreKoalas));
 
-
 ////////////////////////////////////
 // Coding Challenge #1
 
 // Function to calculate average of 3 scores
 // function calcAverage(score1, score2, score3) {
-  // Your code here
+// Your code here
 //   return (score1 + score2 + score3) / 3;
 // }
 
 // Function to check winner
 // function checkWinner(avgDolphins, avgKoalas) {
-  // Your code here
-  // >= 2 * avgKoalas
-  // Remember: team needs DOUBLE the score to win
-  // Use template literals for nice output
+// Your code here
+// >= 2 * avgKoalas
+// Remember: team needs DOUBLE the score to win
+// Use template literals for nice output
 //   if (avgDolphins >= 2 * avgKoalas) {
 //     return `Dolphins win (${avgDolphins} vs ${avgKoalas})`;
 //   } else if (avgKoalas >= 2 * avgDolphins) {
@@ -140,80 +137,76 @@
 // console.log(checkWinner(scoreDolphins, scoreKoalas));
 // "Dolphins win (60 vs 28)"
 
-
 // Lesson 2 Array Data Manipulations
 
 // const student1Grade = 85;
 // const student2Grade = 92;
 // const student3Grade = 78;
- 
+
 // const grades = [85, 92, 78, 96, 88];
 // console.log(grades);
- 
+
 // Arrays - Creation and Access
 // console.log("=== ARRAYS ===");
- 
+
 // Array creation
 // const friends = ["Michael", "Steven", "Peter"];
 // console.log(friends);
- 
+
 // Different data types in same array
 // const mixed = ["Jonas", 27, true, friends];
 // console.log(mixed);
- 
+
 // Alternative way (but literal notation is preferred)
 // const years = new Array(1991, 1984, 2008, 2020);
 // console.log(years);
- 
+
 // Array indexing starts at 0
 // console.log(friends[0]);
 // console.log(friends[2]);
 // console.log(friends.length);
- 
+
 // console.log(friends[friends.length - 1]);
- 
- 
+
 // friends[1] = "Jay";
 // console.log(friends);
- 
- 
+
 // const firstName = "Jonas";
 // const jonas = [firstName, "Schmedtmann", 2037 - 1991];
 // console.log(jonas);
- 
+
 // const calcAge = function (birthYear) {
 //   return 2025 - birthYear;
 // };
- 
+
 // const ages = [calcAge(2002), calcAge(2003), calcAge(2005)];
 // console.log(ages);
- 
 
 // Array Methods - Adding Elements
- 
+
 // const newLength = friends.push("Steven");
 // console.log(friends);
 // console.log(newLength);
 // const newLength2 = friends.push("John");
 // console.log(friends);
- 
+
 // friends.unshift("Maria");
 // console.log(friends);
- 
+
 // const popped = friends.pop();
 // const popped2 = friends.pop();
 // console.log(popped);
 // console.log(popped2);
 // console.log(friends);
- 
+
 // const shifted = friends.shift();
 // console.log(shifted);
 // console.log(friends);
- 
+
 // console.log(friends.indexOf("Micheal"));
 // console.log(friends.indexOf("Maria"));
 // console.log(friends.indexOf("Jay"));
- 
+
 // console.log(friends.includes("Jay"));
 // console.log(friends.includes("Maria"));
 
@@ -233,7 +226,6 @@
 //   console.log(`Friend ${index + 1}: ${friend}`);
 // });
 
-
 // const grades2 = [85, 92, 78, 96, 88, 74];
 // let total = 0;
 
@@ -249,7 +241,6 @@
 // });
 // console.log(`${passedCount} out of ${grades2.length} students passed`);
 
-
 ////////////////////////////////////
 // Coding Challenge #2 - Student Grade Manager
 
@@ -257,8 +248,8 @@
 
 // Function to calculate average
 // function calculateAverage(grades) {
-  // Your code here
-  // Hint: Sum all grades, divide by length
+// Your code here
+// Hint: Sum all grades, divide by length
 //   let total = 0;
 //   for (let i = 0; i < grades.length; i++) {
 //     total += grades[i];
@@ -268,8 +259,8 @@
 
 // Function to find highest grade
 // function findHighestGrade(grades) {
-  // Your code here
-  // Hint: Start with first grade, compare with each subsequent grade
+// Your code here
+// Hint: Start with first grade, compare with each subsequent grade
 //   let highest = grades[0];
 //   for (let i = 1; i < grades.length; i++) {
 //     if (grades[i] > highest) {
@@ -281,8 +272,8 @@
 
 // Function to find lowest grade
 // function findLowestGrade(grades) {
-  // Your code here
-  // Hint: Similar to highest, but use < comparison
+// Your code here
+// Hint: Similar to highest, but use < comparison
 //   let lowest = grades[0];
 //   for (let i = 1; i < grades.length; i++) {
 //     if (grades[i] < lowest) {
@@ -294,8 +285,8 @@
 
 // Function to count passing students
 // function countPassing(grades, passingGrade) {
-  // Your code here
-  // Hint: Counter pattern - increment when condition is met
+// Your code here
+// Hint: Counter pattern - increment when condition is met
 //   let count = 0;
 //   for (let i = 0; i < grades.length; i++) {
 //     if (grades[i] >= passingGrade) {
@@ -316,7 +307,6 @@
 // console.log(`Highest: ${highest}`);
 // console.log(`Lowest: ${lowest}`);
 // console.log(`Passing students: ${passing} out of ${grades.length}`);
-
 
 //////////////////////////////////
 // Hour 3
@@ -342,7 +332,6 @@
 // };
 // console.log(marObject);
 
-
 // Property access methods
 // Dot notation
 // console.log(marObject.firstName);
@@ -357,12 +346,10 @@
 // const nameKey = "Name";
 // console.log(marObject['first' + nameKey]);
 
-
 // Modifying existing properties
 // marObject.job = "Mobile and Web Developer";
 // marObject["age"] = 30;
 // console.log(marObject);
-
 
 // add new properties
 // marObject.location = "Philippines";
@@ -372,13 +359,12 @@
 
 // When to use dot vs bracket notation
 // const property = "job";
-// console.log(marObject[property]); 
+// console.log(marObject[property]);
 
 // "1.) Property name is in a variable"
 // "2.) Property name has spaces or special characters"
 // "3.) Property name is computed/dynamic"
 // "Otherwise, prefer dot notation"
-
 
 // Objects vs Arrays Decision Making
 
@@ -413,7 +399,6 @@
 // console.log(student.grades[0]);
 // console.log(student.address.city);
 
-
 // Object Methods
 // const mar = {
 //   firstName: "Mar",
@@ -429,7 +414,6 @@
 // };
 
 // console.log(mar.calcAge(2004));
-
 
 //'this' keyword
 // const marImproved = {
@@ -456,8 +440,6 @@
 // console.log(marImproved.age);
 // console.log(marImproved.getSummary());
 
-
-
 // Complex object with multiple methods (show real-world pattern - 5 min)
 // const bankAccount = {
 //   owner: "Mar Alaman",
@@ -465,17 +447,17 @@
 //   interestRate: 1.2,
 //   pin: 9999,
 
-  // Method to calculate balance
-  // calcBalance: function () {
-  //   this.balance = this.movements.reduce((acc, mov) => acc + mov, 0);
-  //   return this.balance;
-  // },
+// Method to calculate balance
+// calcBalance: function () {
+//   this.balance = this.movements.reduce((acc, mov) => acc + mov, 0);
+//   return this.balance;
+// },
 
-  // Method to add a movement
-  // deposit: function (amount) {
-  //   this.movements.push(amount);
-  //   this.calcBalance();
-  // },
+// Method to add a movement
+// deposit: function (amount) {
+//   this.movements.push(amount);
+//   this.calcBalance();
+// },
 
 //   withdraw: function (amount) {
 //     this.movements.push(-amount);
@@ -491,10 +473,6 @@
 // console.log(bankAccount.getStatement());
 // bankAccount.deposit(500);
 // console.log(bankAccount.getStatement());
-
-
-
-
 
 ////////////////////////////////////
 // Coding Challenge #3 - User Profile System
@@ -513,48 +491,48 @@
 //   ],
 //   isActive: true,
 
-  // Calculate age method
-  // calcAge: function () {
-    // Calculate age and store as this.age
-    // Hint: Use new Date().getFullYear() for current year
-    // Your code here
-  //   const currentYear = new Date().getFullYear();
-  //   this.age = currentYear - this.birthYear;
-  //   return this.age;
-  // },
+// Calculate age method
+// calcAge: function () {
+// Calculate age and store as this.age
+// Hint: Use new Date().getFullYear() for current year
+// Your code here
+//   const currentYear = new Date().getFullYear();
+//   this.age = currentYear - this.birthYear;
+//   return this.age;
+// },
 
-  // Add friend method
-  // addFriend: function (name, status = "active") {
-    // Add new friend object to this.friends array
-    // Return the new length of friends array
-    // Your code here
-  //   this.friends.push({ name, status });
-  //   return this.friends.length;
-  // },
+// Add friend method
+// addFriend: function (name, status = "active") {
+// Add new friend object to this.friends array
+// Return the new length of friends array
+// Your code here
+//   this.friends.push({ name, status });
+//   return this.friends.length;
+// },
 
-  // Get active friends count
-  // getActiveFriends: function () {
-    // Filter friends array to count only active friends
-    // Hint: use this.friends.filter()
-    // Your code here
-  //   return this.friends.filter((f) => f.status === "active").length;
-  // },
+// Get active friends count
+// getActiveFriends: function () {
+// Filter friends array to count only active friends
+// Hint: use this.friends.filter()
+// Your code here
+//   return this.friends.filter((f) => f.status === "active").length;
+// },
 
-  // Toggle active status
-  // toggleStatus: function () {
-    // Switch this.isActive between true and false
-    // Return the new status
-    // Your code here
-  //   this.isActive = !this.isActive;
-  //   return this.isActive;
-  // },
+// Toggle active status
+// toggleStatus: function () {
+// Switch this.isActive between true and false
+// Return the new status
+// Your code here
+//   this.isActive = !this.isActive;
+//   return this.isActive;
+// },
 
-  // Generate profile summary
+// Generate profile summary
 //   getSummary: function () {
-    // Create a social media style profile summary
-    // Include: name, age, location, status, friend counts, interests
-    // Use template literals for nice formatting
-    // Your code here
+// Create a social media style profile summary
+// Include: name, age, location, status, friend counts, interests
+// Use template literals for nice formatting
+// Your code here
 //     const age = this.calcAge();
 //     const totalFriends = this.friends.length;
 //     const activeFriends = this.getActiveFriends();
@@ -576,9 +554,6 @@
 // console.log(`\nAfter updates:`);
 // console.log(user.getSummary());
 
-
-
-
 ////////////////////////////////////
 // Coding Challenge #3 - User Profile System
 // My Second Solution
@@ -596,47 +571,47 @@
 //   ],
 //   isActive: true,
 
-  // Calculate age method
-  // calcAge: function () {
-    // Calculate age and store as this.age
-    // Hint: Use new Date().getFullYear() for current year
-    // Your code here
-  //   this.age = new Date().getFullYear() - this.birthYear;
-  //   return this.age;
-  // },
+// Calculate age method
+// calcAge: function () {
+// Calculate age and store as this.age
+// Hint: Use new Date().getFullYear() for current year
+// Your code here
+//   this.age = new Date().getFullYear() - this.birthYear;
+//   return this.age;
+// },
 
-  // Add friend method
-  // addFriend: function (name, status = "active") {
-    // Add new friend object to this.friends array
-    // Return the new length of friends array
-    // Your code here
-  //   this.friends.push({ name, status });
-  //   return this.friends.length;
-  // },
+// Add friend method
+// addFriend: function (name, status = "active") {
+// Add new friend object to this.friends array
+// Return the new length of friends array
+// Your code here
+//   this.friends.push({ name, status });
+//   return this.friends.length;
+// },
 
-  // Get active friends count
-  // getActiveFriends: function () {
-    // Filter friends array to count only active friends
-    // Hint: use this.friends.filter()
-    // Your code here
-  //   return this.friends.filter(friend => friend.status === "active").length;
-  // },
+// Get active friends count
+// getActiveFriends: function () {
+// Filter friends array to count only active friends
+// Hint: use this.friends.filter()
+// Your code here
+//   return this.friends.filter(friend => friend.status === "active").length;
+// },
 
-  // Toggle active status
-  // toggleStatus: function () {
-    // Switch this.isActive between true and false
-    // Return the new status
-    // Your code here
-  //   this.isActive = !this.isActive;
-  //   return this.isActive;
-  // },
+// Toggle active status
+// toggleStatus: function () {
+// Switch this.isActive between true and false
+// Return the new status
+// Your code here
+//   this.isActive = !this.isActive;
+//   return this.isActive;
+// },
 
-  // Generate profile summary
-  // getSummary: function () {
-    // Create a social media style profile summary
-    // Include: name, age, location, status, friend counts, interests
-    // Use template literals for nice formatting
-    // Your code here
+// Generate profile summary
+// getSummary: function () {
+// Create a social media style profile summary
+// Include: name, age, location, status, friend counts, interests
+// Use template literals for nice formatting
+// Your code here
 //     const age = this.calcAge();
 //     const activeFriends = this.getActiveFriends();
 //     const status = this.isActive ? "active" : "away";
@@ -655,16 +630,6 @@
 // user.toggleStatus();
 // console.log(`\nAfter updates:`);
 // console.log(user.getSummary());
-
-
-
-
-
-
-
-
-
-
 
 // Select DOM Elements
 
@@ -690,16 +655,15 @@
 // getElementById
 // const buttonByID = document.getElementById("btn");
 // console.log(buttonByID);
-// console.log(buttonByID === button); 
+// console.log(buttonByID === button);
 
 // querySelectorAll - Multiple elements
 // const allParagraphs = document.querySelectorAll("p");
 // console.log(allParagraphs);
 // console.log(allParagraphs[0]);
 
-
 // Modifying element content
-const message = document.querySelector(".message");
+const message = document.querySelector('.message');
 
 // Text content
 console.log(message.textContent);
@@ -707,55 +671,51 @@ message.textContent = 'Hello from JavaScript!';
 console.log(message.textContent);
 
 // innerHTML
-message.innerHTML = "<strong>Bold text from JS!</strong>";
-
+message.innerHTML = '<strong>Bold text from JS!</strong>';
 
 // innerText
 console.log(message.innerText);
 
-
 // Input Element Value
-const input = document.querySelector(".guess");
+const input = document.querySelector('.guess');
 
 console.log(input.value);
-input.value = "Default text"; 
+input.value = 'Default text';
 
-const heading = document.querySelector("h1");
+const heading = document.querySelector('h1');
 
-heading.style.color = "red";
-heading.style.backgroundColor = "yellow";
-heading.style.fontSize = "3rem";
+heading.style.color = 'red';
+heading.style.backgroundColor = 'yellow';
+heading.style.fontSize = '3rem';
 
-const button = document.querySelector("#btn");
-button.style.padding = "20px";
-button.style.borderRadius = "10px";
-
+const button = document.querySelector('#btn');
+button.style.padding = '20px';
+button.style.borderRadius = '10px';
 
 // Event Listeners - user interactions
-button.addEventListener("click", function() {
+button.addEventListener('click', function () {
   console.log('Button was clicked!');
-  message.textContent = "You clicked the button";
-  message.style.color = "green"
+  message.textContent = 'You clicked the button';
+  message.style.color = 'green';
 });
 
 let clickCount = 0;
-button.addEventListener("click", function() {
+button.addEventListener('click', function () {
   clickCount++;
   button.textContent = `Clicked ${clickCount} times`;
   button.style.backgroundColor = `hsl(${clickCount * 30}, 70%, 50%)`;
 });
 
 // Input events
-const display = document.querySelector(".message");
-input.addEventListener('input', function() {
+const display = document.querySelector('.message');
+input.addEventListener('input', function () {
   const userText = input.value;
   display.textContent = `You typed ${userText}`;
   display.style.fontSize = `${userText.length + 10}px`;
 });
 
-
 // keyboard events - respond to specific key
-input.addEventListener("keydown", function(event) {
+input.addEventListener('keydown', function (event) {
   console.log(`Key pressed ${event.key}`);
 
   if (event.key === 'Enter') {
