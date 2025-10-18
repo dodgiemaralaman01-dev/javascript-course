@@ -8,15 +8,15 @@ class Workout {
   clicks = 0;
 
   constructor(coords, distance, duration) {
-    // store the cooordinates as an array of lat and long
+    // Store the cooordinates as an array of lat and long
     this.coords = coords;
-    // store distance in kilometers
+    // Store distance in kilometers
     this.distance = distance;
-    // stroe duration in minutes
+    // Store duration in minutes
     this.duration = duration;
   }
 
-  // generate workout description
+  // Generate workout description
   _setDescription() {
     const months = [
       'January',
@@ -33,7 +33,7 @@ class Workout {
       'December',
     ];
 
-    // generate description
+    // Generate description
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
     } ${this.date.getDate()}`;
@@ -107,25 +107,25 @@ console.log(
 );
 
 // DOM ELEMENTS
-// main form element
+// Main form element
 const form = document.querySelector('.form');
 
-// container workout list
+// Container workout list
 const containerWorkouts = document.querySelector('.workouts');
 
-// inputtype
+// Inputtype
 const inputType = document.querySelector('.form__input--type');
 
-// input distance
+// Input distance
 const inputDistance = document.querySelector('.form__input--distance');
 
-// input duration
+// Input duration
 const inputDuration = document.querySelector('.form__input--duration');
 
-// input cadence
+// Input cadence
 const inputCadence = document.querySelector('.form__input--cadence');
 
-// input elevation
+// Input elevation
 const inputElevation = document.querySelector('.form__input--elevation');
 class App {
   #map;
@@ -138,19 +138,19 @@ class App {
     this._getLocalStorage();
     this._getPosition();
 
-    // attach event handlers to form submission
+    // Attach event handlers to form submission
     form.addEventListener('submit', this._newWorkout.bind(this));
-    // attach event handlers for workout type changes
+    // Attach event handlers for workout type changes
     inputType.addEventListener('change', this._toggleElevationField);
 
-    // add click handling for workout list items
+    // Add click handling for workout list items
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
 
     document.addEventListener('keydown', this._handleKeyDown.bind(this));
   }
 
   _handleKeyDown(e) {
-    // close form when escape key is pressed
+    // Close form when escape key is pressed
     if (e.key === 'Escape' && !form.classList.contains('hidden')) {
       this._hideForm();
       console.log('Form closed with Escape Key');
@@ -158,7 +158,7 @@ class App {
   }
 
   _moveToPopup(e) {
-    // find the closest workout element from the clicked target
+    // Find the closest workout element from the clicked target
     const workoutEl = e.target.closest('.workout');
 
     if (!workoutEl) return;
@@ -168,7 +168,7 @@ class App {
       work => work.id === workoutEl.dataset.id
     );
 
-    // move the map to the workout coordinates
+    // Move the map to the workout coordinates
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
       pan: {
@@ -278,10 +278,10 @@ class App {
   }
 
   _toggleElevationField() {
-    // turn on or display elevation
+    // Turn on or display elevation
     inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
 
-    // turns off or hide the input cadence
+    // Turns off or hide the input cadence
     inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
   }
 
@@ -292,24 +292,24 @@ class App {
       inputElevation.value =
         '';
 
-    // add hiding animation
+    // Add hiding animation
     form.style.dispalay = 'none';
     form.classList.add('hidden');
     setTimeout(() => (form.style.display = 'grid'), 1000);
   }
 
   _newWorkout(e) {
-    // helper function
-    // validate input that they are actual numbers that make sense
+    // Helper function
+    // Validate input that they are actual numbers that make sense
     const validInputs = (...inputs) =>
       inputs.every(inp => Number.isFinite(inp));
-    // validate numbers are positive
+    // Validate numbers are positive
     const allPositive = (...inputs) => inputs.every(inp => inp > 0);
 
-    // prevent the default form submission behavior
+    // Prevent the default form submission behavior
     e.preventDefault();
 
-    // store data or extract data
+    // Store data or extract data
     const type = inputType.value;
     const distance = +inputDistance.value;
     const duration = +inputDuration.value;
@@ -318,33 +318,33 @@ class App {
 
     console.log(`Creating ${type} workout:`, { distance, duration, lat, lng });
 
-    // handle running workout
+    // Handle running workout
     if (type === 'running') {
       const cadence = +inputCadence.value;
 
-      // validate all input elements are finite, positive, working
+      // Validate all input elements are finite, positive, working
       if (
         !validInputs(distance, duration, cadence) ||
         !allPositive(distance, duration, cadence)
       )
         return alert('Inputs have to be positive numbers!');
 
-      // create the running object with map coordinates and form data
+      // Create the running object with map coordinates and form data
       workout = new Running([lat, lng], distance, duration, cadence);
     }
 
-    // cycling workout creation
+    // Cycling workout creation
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
 
-      // validate all input elements are finite, positive, working
+      // Validate all input elements are finite, positive, working
       if (
         !validInputs(distance, duration, elevation) ||
         !allPositive(distance, duration)
       )
         return alert('Inputs have to be positive numbers!');
 
-      // create the running object with map coordinates and form data
+      // Create the running object with map coordinates and form data
       workout = new Cycling([lat, lng], distance, duration, elevation);
     }
 
@@ -364,7 +364,7 @@ class App {
   }
 
   _renderWorkout(workout) {
-    // create the base html
+    // Create the base html
     let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
       <h2 class="workout__title">${workout.description}</h2>
@@ -427,7 +427,7 @@ class App {
           className: `${workout.type}-popup`,
         })
       )
-      // set popup content with emoji and workout description
+      // Set popup content with emoji and workout description
       .setPopupContent(
         `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
       )
@@ -442,18 +442,18 @@ class App {
   _getLocalStorage() {
     const data = localStorage.getItem('workouts');
 
-    // check if the data exists before parsing
+    // Check if the data exists before parsing
     if (!data) return;
 
-    // parse the JSON data back to Javascript objects
+    // Parse the JSON data back to Javascript objects
     const storedWorkouts = JSON.parse(data);
     console.log('Retrieved workouts from local Storage', storedWorkouts);
 
-    // restore proper workout objects with inheritance
+    // Restore proper workout objects with inheritance
     this.#workouts = storedWorkouts.map(workoutData => {
       let workout;
 
-      // recreate running objects with proper inheritance
+      // Recreate running objects with proper inheritance
       if (workoutData.type === 'running') {
         workout = new Running(
           workoutData.coords,
@@ -463,7 +463,7 @@ class App {
         );
       }
 
-      // recreate cycling objects with proper inheritance
+      // Recreate cycling objects with proper inheritance
       if (workoutData.type === 'cycling') {
         workout = new Cycling(
           workoutData.coords,
@@ -473,7 +473,7 @@ class App {
         );
       }
 
-      // restore original date and ID to maintain data consistency
+      // Restore original date and ID to maintain data consistency
       workout.data = new Date(workoutData.date);
       workout.id = workoutData.id;
       workout.clicks = workoutData.click;
