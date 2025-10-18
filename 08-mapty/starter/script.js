@@ -252,7 +252,7 @@ class App {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.#map);
 
-    L.marker(coords).addTo(this.#map).bindPopup('Nandine ka!').openPopup();
+    L.marker(coords).addTo(this.#map).bindPopup('You are here!').openPopup();
     this.#map.on('click', this._showForm.bind(this));
 
     this._renderStoredWorkouts();
